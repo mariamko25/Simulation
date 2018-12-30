@@ -1,0 +1,46 @@
+package com.evenement;
+
+import java.util.List;
+
+import com.model.Client;
+import com.model.Echeancier;
+import com.model.TypeEvtTraite;
+
+public class DepartClient extends Evenement {
+	
+	private Evenement evenement;
+	private List<Client> clients;
+	
+	
+	public DepartClient(TypeEvtTraite evt,Evenement event,List<Client>clients)
+	{
+		typeEvt=evt;
+		evenement=event;
+		this.clients=clients;
+	}
+	public  void executer()
+	{
+		if(!clients.isEmpty())
+		{
+			clients.get(0).setDateDepart(evenement.getHs());
+			clients.get(0).setTempService(clients.get(0).getDateDepart()-clients.get(0).getDateAccSrv());
+			evenement.setB(0);
+			if(evenement.getQ()>=1)
+			{
+				AccesService acc=new AccesService(TypeEvtTraite.AccSrv,evenement,clients);
+				acc.setHs(evenement.getHs());
+				acc.setB(evenement.getB());
+				acc.setQ(evenement.getQ());
+				acc.setAttenteGlobale(evenement.getAttenteGlobale());
+				acc.setTotalClientNumber(evenement.getTotalClientNumber());
+				acc.setTempMoyenAttente(evenement.getTempMoyenAttente());
+				acc.setDureeService(evenement.getDureeService());
+				acc.setInterArrivee(evenement.getInterArrivee());
+				Echeancier.add(acc);
+			}
+			clients.remove(0);
+		}
+		
+	}
+
+}
