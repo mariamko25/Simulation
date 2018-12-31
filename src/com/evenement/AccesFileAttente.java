@@ -17,15 +17,17 @@ public class AccesFileAttente extends Evenement {
 		this.evenement=event;
 		this.clients=clients;
 	}
-	public void executer()
+	public void executer(float sh)
 	{
 		this.evenement.setQ(this.evenement.getQ()+1);
 		
 		if(this.evenement.getB()==0)
 		{
+			evenement.setHs(sh);
 			AccesService acc=new AccesService(TypeEvtTraite.AccSrv,evenement,clients);
 			acc.setHs(evenement.getHs());
-			acc.setB(evenement.getB());
+			acc.setHeureDebut(evenement.getHs());
+			acc.setB(1);
 			acc.setQ(evenement.getQ());
 			acc.setAttenteGlobale(evenement.getAttenteGlobale());
 			acc.setTotalClientNumber(evenement.getTotalClientNumber());

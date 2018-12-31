@@ -72,7 +72,7 @@ public class SimulationView extends JFrame {
 						Evenement evt=new Evenement();
 						evt.setInterArrivee(Float.valueOf(paramLoiArrivee.getText()));
 						evt.setDureeService(Float.valueOf(paramLoiService.getText()));
-						Simulation sim=new Simulation(evt,"sim.csv",100);
+						Simulation sim=new Simulation(evt,"sim.csv",40);
 						try {
 							sim.simulate();
 						} catch (IOException e1) {

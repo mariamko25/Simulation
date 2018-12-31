@@ -18,13 +18,15 @@ public class ArriveeClient extends Evenement {
 		evenement=event;
 		this.clients=clients;
 	}
-	public   void executer()
+	public   void executer(float sh)
 	{
+		evenement.setHs(sh);
 		Client nouveau=new Client();
 		nouveau.setDateArrivee(evenement.getHs());
 		clients.add(nouveau);
 		AccesFileAttente acces=new AccesFileAttente(TypeEvtTraite.AccFA,evenement,clients);
 		acces.setHs(evenement.getHs());
+		acces.setHeureDebut(evenement.getHs());
 		acces.setB(evenement.getB());
 		acces.setQ(evenement.getQ());
 		acces.setAttenteGlobale(evenement.getAttenteGlobale());
@@ -35,7 +37,8 @@ public class ArriveeClient extends Evenement {
 		Echeancier.add(acces);
 		evenement.setTotalClientNumber(evenement.getTotalClientNumber()+1);
 		ArriveeClient arr= new ArriveeClient(TypeEvtTraite.ArrCl,evenement,clients); 
-		arr.setHs(evenement.getHs()+evenement.getInterArrivee());
+		arr.setHs(evenement.getHs());
+		arr.setHeureDebut(evenement.getHs()+evenement.getInterArrivee());
 		arr.setB(evenement.getB());
 		arr.setQ(evenement.getQ());
 		arr.setAttenteGlobale(evenement.getAttenteGlobale());

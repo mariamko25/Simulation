@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.evenement.*;
@@ -16,5 +17,11 @@ public class Echeancier {
 	public static Evenement  remove()
 	{
 		return evt.remove(0);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static void sort()
+	{
+		Collections.sort(evt);
 	}
 }

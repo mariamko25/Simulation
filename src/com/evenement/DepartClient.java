@@ -18,10 +18,11 @@ public class DepartClient extends Evenement {
 		evenement=event;
 		this.clients=clients;
 	}
-	public  void executer()
+	public  void executer(float sh)
 	{
 		if(!clients.isEmpty())
 		{
+			evenement.setHs(sh);
 			clients.get(0).setDateDepart(evenement.getHs());
 			clients.get(0).setTempService(clients.get(0).getDateDepart()-clients.get(0).getDateAccSrv());
 			evenement.setB(0);
@@ -29,6 +30,7 @@ public class DepartClient extends Evenement {
 			{
 				AccesService acc=new AccesService(TypeEvtTraite.AccSrv,evenement,clients);
 				acc.setHs(evenement.getHs());
+				acc.setHeureDebut(evenement.getHs());
 				acc.setB(evenement.getB());
 				acc.setQ(evenement.getQ());
 				acc.setAttenteGlobale(evenement.getAttenteGlobale());

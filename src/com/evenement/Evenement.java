@@ -2,7 +2,7 @@ package com.evenement;
 
 import com.model.TypeEvtTraite;
 
-public  class Evenement {
+public  class Evenement implements Comparable{
 	/**
 	 * @return the precHs
 	 */
@@ -69,7 +69,7 @@ public  class Evenement {
 	{
 		
 	}
-	public void executer()
+	public void executer(float sh)
 	{
 		
 	}
@@ -190,6 +190,16 @@ public  class Evenement {
 	 */
 	public  void setAire_Q(float aire_Q) {
 		this.aire_Q = aire_Q;
+	}
+	
+	
+	
+	
+	@Override
+	public int compareTo(Object o) {
+		float compareHd=((Evenement)o).getHeureDebut();
+        /* For Ascending order*/
+        return Float.compare(heureDebut,compareHd);
 	}
 	
 	

@@ -11,9 +11,10 @@ public class Fin extends Evenement{
 		typeEvt=evt;
 		evenement=event;
 	}
-	public  void executer()
+	public  void executer(float sh)
 	{
 		Echeancier.evt.clear();
+		evenement.setHs(sh);
 		evenement.setTempMoyenAttente(evenement.getAttenteGlobale()/evenement.getTotalClientNumber());
 		this.setB(evenement.getB());
 		this.setQ(evenement.getQ());

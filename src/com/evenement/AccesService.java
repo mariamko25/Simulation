@@ -17,8 +17,9 @@ public class AccesService extends Evenement {
 		evenement=event;
 		this.clients=clients;
 	}
-	public  void executer()
+	public  void executer(float sh)
 	{
+		evenement.setHs(sh);
 		evenement.setAttenteGlobale(evenement.getAttenteGlobale()+(evenement.getHs()-clients.get(0).getDateArrivee()));
 		clients.get(0).setDateAccSrv(evenement.getHs());
 		if(evenement.getQ()>0)
@@ -28,8 +29,9 @@ public class AccesService extends Evenement {
 		}
 		evenement.setB(1);
 		DepartClient depart= new DepartClient(TypeEvtTraite.DepCl,evenement,clients);
-		depart.setHs(evenement.getHs()+evenement.getDureeService());
-		depart.setB(evenement.getB());
+		depart.setHs(evenement.getHs());
+		depart.setHeureDebut(evenement.getHs()+evenement.getDureeService());
+		depart.setB(0);
 		depart.setQ(evenement.getQ());
 		depart.setAttenteGlobale(evenement.getAttenteGlobale());
 		depart.setTotalClientNumber(evenement.getTotalClientNumber());
