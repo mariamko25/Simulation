@@ -32,16 +32,16 @@ public  class Evenement implements Comparable{
 		if(LoiInterArrivee=="Loi exponentielle")
 		{
 
-			return (float) loi.getExponentielRandom(interArrivee);
+			return (float) Math.abs(loi.getExponentielRandom(interArrivee));
 		}
 		else if(LoiInterArrivee=="Loi de poisson")
 		{
-			return (float) loi.getPoissonRandom(interArrivee);
+			return (float) Math.abs(loi.getPoissonRandom(interArrivee));
 
 		}
 		else if(LoiInterArrivee=="Loi normale")
 		{
-			return (float) loi.getNormalRandom();
+			return (float) Math.abs(loi.getNormalRandom());
 			
 		}
 		else if(LoiInterArrivee=="Loi uniforme")
@@ -92,15 +92,15 @@ public  class Evenement implements Comparable{
 		//return dureeService;
 		if(LoiDureeService=="Loi exponentielle")
 		{
-			return (float) loi.getExponentielRandom(dureeService);
+			return (float) Math.abs(loi.getExponentielRandom(dureeService));
 		}
 		else if(LoiDureeService=="Loi de poisson")
 		{
-			return loi.getPoissonRandom(dureeService);
+			return Math.abs(loi.getPoissonRandom(dureeService));
 		}
 		else if(LoiDureeService=="Loi normale")
 		{
-			return (float) loi.getNormalRandom();
+			return (float) Math.abs(loi.getNormalRandom());
 			
 		}
 		else if(LoiDureeService=="Loi uniforme")
@@ -271,8 +271,14 @@ public  class Evenement implements Comparable{
 	@Override
 	public int compareTo(Object o) {
 		float compareHd=((Evenement)o).getHeureDebut();
+		float compareHs=((Evenement)o).getHs();
         /* For Ascending order*/
-        return Float.compare(heureDebut,compareHd);
+        int res=  Float.compare(heureDebut,compareHd);
+        if(res==0)
+        {
+        	res=Float.compare(hs,compareHs);
+        }
+       return res;
 	}
 	
 	

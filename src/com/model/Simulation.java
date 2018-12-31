@@ -41,6 +41,7 @@ public class Simulation {
 			event.setAire_Q(event.getAire_Q() + (event.getHs()-event.getPrecHs())*event.getQ());
 			System.out.println(Echeancier.evt.get(0).getTypeEvt().name());
 			event.setPrecHs(event.getHs());
+			double n= Echeancier.evt.get(0).getHeureDebut();
 			event.setHs(Echeancier.evt.get(0).getHeureDebut());
 			Echeancier.remove().executer(event.getHs());
 			count++;
