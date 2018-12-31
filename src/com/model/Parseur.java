@@ -50,7 +50,7 @@ public class Parseur {
 		
 	}
 	
-	public float calculMoyenneRéponse()
+	public float calculMoyenneReponse()
 	{
 		float somme=(float) 0;
 		for(int i = 1; i < dureeServ.size(); i++){
@@ -77,7 +77,7 @@ public class Parseur {
 		Parseur sim=new Parseur();
 		sim.parse("DataAppels.txt");
 		System.out.println("Moyenne inter arrivee: "+ sim.calculMoyenneInterArrivee());
-		System.out.println("Moyenne réponse: "+ sim.calculMoyenneRéponse());
+		System.out.println("Moyenne réponse: "+ sim.calculMoyenneReponse());
 		sim.write("sim.csv");
 	}
 }

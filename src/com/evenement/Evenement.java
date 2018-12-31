@@ -1,5 +1,7 @@
 package com.evenement;
 
+import java.util.Random;
+
 import com.model.TypeEvtTraite;
 
 public  class Evenement implements Comparable{
@@ -202,6 +204,8 @@ public  class Evenement implements Comparable{
         return Float.compare(heureDebut,compareHd);
 	}
 	
+	
+
 	
 	
 

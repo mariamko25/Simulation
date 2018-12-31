@@ -9,8 +9,11 @@ import javax.swing.border.EmptyBorder;
 import com.evenement.Evenement;
 import com.model.Simulation;
 
+import Lois.Loi;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
@@ -46,6 +49,7 @@ public class SimulationView extends JFrame {
 	 * Create the frame.
 	 */
 	public SimulationView() {
+		Loi loi= new Loi();
 		setTitle("Simulation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -53,7 +57,8 @@ public class SimulationView extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		JComboBox<String> comboLoiArrivee = new JComboBox<String>();
+		JComboBox<String> comboLoiService = new JComboBox<String>();
 		JTextPane paramLoiArrivee = new JTextPane();
 		paramLoiArrivee.setBounds(321, 86, 123, 27);
 		contentPane.add(paramLoiArrivee);
@@ -70,8 +75,52 @@ public class SimulationView extends JFrame {
 					if(!paramLoiService.getText().isEmpty())
 					{
 						Evenement evt=new Evenement();
-						evt.setInterArrivee(Float.valueOf(paramLoiArrivee.getText()));
-						evt.setDureeService(Float.valueOf(paramLoiService.getText()));
+						
+						if(comboLoiArrivee.getSelectedItem().toString()=="Loi exponentielle")
+						{
+							evt.setInterArrivee((float) loi.getExponentielRandom(Float.valueOf(paramLoiArrivee.getText())));
+						}
+						else if(comboLoiArrivee.getSelectedItem().toString()=="Loi de poisson")
+						{
+							evt.setInterArrivee(loi.getPoissonRandom(Float.valueOf(paramLoiArrivee.getText())));
+						}
+						else if(comboLoiArrivee.getSelectedItem().toString()=="Loi normale")
+						{evt.setInterArrivee((float) loi.getNormalRandom());
+							
+						}
+						else if(comboLoiArrivee.getSelectedItem()=="Loi uniforme")
+						{
+							evt.setInterArrivee(Float.valueOf(paramLoiArrivee.getText()));
+						}
+						else
+						{
+							javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a été sélectionnée!"); 
+						}
+						//evt.setInterArrivee(Float.valueOf(paramLoiArrivee.getText()));
+						
+						
+						if(comboLoiService.getSelectedItem().toString()=="Loi exponentielle")
+						{
+							evt.setDureeService((float) loi.getExponentielRandom(Float.valueOf(paramLoiService.getText())));
+						}
+						else if(comboLoiService.getSelectedItem().toString()=="Loi de poisson")
+						{
+							evt.setDureeService(loi.getPoissonRandom(Float.valueOf(paramLoiService.getText())));
+						}
+						else if(comboLoiService.getSelectedItem().toString()=="Loi normale")
+						{evt.setDureeService((float) loi.getNormalRandom());
+							
+						}
+						else if(comboLoiService.getSelectedItem()=="Loi uniforme")
+						{
+							evt.setDureeService(Float.valueOf(paramLoiService.getText()));
+						}
+						else
+						{
+							javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a été sélectionnée!"); 
+						}
+						//evt.setDureeService(Float.valueOf(paramLoiService.getText()));
+						
 						Simulation sim=new Simulation(evt,"sim.csv",40);
 						try {
 							sim.simulate();
@@ -88,8 +137,8 @@ public class SimulationView extends JFrame {
 		btnLancer.setBounds(163, 243, 117, 29);
 		contentPane.add(btnLancer);
 		
-		JComboBox<String> comboLoiArrivee = new JComboBox<String>();
-		comboLoiArrivee.setModel(new DefaultComboBoxModel<String>(new String[] {"Loi exponentielle", "Loi normale", "Loi de poisson "}));
+		
+		comboLoiArrivee.setModel(new DefaultComboBoxModel<String>(new String[] {"Loi exponentielle", "Loi normale","Loi uniforme", "Loi de poisson"}));
 		comboLoiArrivee.setBounds(108, 86, 123, 27);
 		contentPane.add(comboLoiArrivee);
 		
@@ -105,7 +154,7 @@ public class SimulationView extends JFrame {
 		lblService.setBounds(29, 145, 61, 16);
 		contentPane.add(lblService);
 		
-		JComboBox<String> comboLoiService = new JComboBox<String>();
+		
 		comboLoiService.setModel(new DefaultComboBoxModel<String>(new String[] {"Loi exponentielle", "Loi normale", "Loi de poisson"}));
 		comboLoiService.setBounds(108, 141, 123, 27);
 		contentPane.add(comboLoiService);
