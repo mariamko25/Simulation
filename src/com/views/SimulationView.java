@@ -49,7 +49,7 @@ public class SimulationView extends JFrame {
 	 * Create the frame.
 	 */
 	public SimulationView() {
-		Loi loi= new Loi();
+		
 		setTitle("Simulation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -76,49 +76,15 @@ public class SimulationView extends JFrame {
 					{
 						Evenement evt=new Evenement();
 						
-						if(comboLoiArrivee.getSelectedItem().toString()=="Loi exponentielle")
-						{
-							evt.setInterArrivee((float) loi.getExponentielRandom(Float.valueOf(paramLoiArrivee.getText())));
-						}
-						else if(comboLoiArrivee.getSelectedItem().toString()=="Loi de poisson")
-						{
-							evt.setInterArrivee(loi.getPoissonRandom(Float.valueOf(paramLoiArrivee.getText())));
-						}
-						else if(comboLoiArrivee.getSelectedItem().toString()=="Loi normale")
-						{evt.setInterArrivee((float) loi.getNormalRandom());
-							
-						}
-						else if(comboLoiArrivee.getSelectedItem()=="Loi uniforme")
-						{
-							evt.setInterArrivee(Float.valueOf(paramLoiArrivee.getText()));
-						}
-						else
-						{
-							javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a été sélectionnée!"); 
-						}
-						//evt.setInterArrivee(Float.valueOf(paramLoiArrivee.getText()));
+						//on récupère le type de loi et le paramètre
+						evt.setInterArrivee(Float.valueOf(paramLoiArrivee.getText()));
+						evt.setLoiInterArrivee(comboLoiArrivee.getSelectedItem().toString());
 						
+						evt.setLoiDureeService(comboLoiService.getSelectedItem().toString());
+						evt.setDureeService(Float.valueOf(paramLoiService.getText()));
+
 						
-						if(comboLoiService.getSelectedItem().toString()=="Loi exponentielle")
-						{
-							evt.setDureeService((float) loi.getExponentielRandom(Float.valueOf(paramLoiService.getText())));
-						}
-						else if(comboLoiService.getSelectedItem().toString()=="Loi de poisson")
-						{
-							evt.setDureeService(loi.getPoissonRandom(Float.valueOf(paramLoiService.getText())));
-						}
-						else if(comboLoiService.getSelectedItem().toString()=="Loi normale")
-						{evt.setDureeService((float) loi.getNormalRandom());
-							
-						}
-						else if(comboLoiService.getSelectedItem()=="Loi uniforme")
-						{
-							evt.setDureeService(Float.valueOf(paramLoiService.getText()));
-						}
-						else
-						{
-							javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a été sélectionnée!"); 
-						}
+				
 						//evt.setDureeService(Float.valueOf(paramLoiService.getText()));
 						
 						Simulation sim=new Simulation(evt,"sim.csv",40);
@@ -142,11 +108,11 @@ public class SimulationView extends JFrame {
 		comboLoiArrivee.setBounds(108, 86, 123, 27);
 		contentPane.add(comboLoiArrivee);
 		
-		JLabel lblParamtre = new JLabel("paramÃ¨tre:");
+		JLabel lblParamtre = new JLabel("parametre:");
 		lblParamtre.setBounds(249, 86, 67, 27);
 		contentPane.add(lblParamtre);
 		
-		JLabel lblNewLabel = new JLabel("arrivÃ©e");
+		JLabel lblNewLabel = new JLabel("arrivee");
 		lblNewLabel.setBounds(29, 90, 61, 16);
 		contentPane.add(lblNewLabel);
 		
@@ -159,7 +125,7 @@ public class SimulationView extends JFrame {
 		comboLoiService.setBounds(108, 141, 123, 27);
 		contentPane.add(comboLoiService);
 		
-		JLabel label = new JLabel("paramÃ¨tre:");
+		JLabel label = new JLabel("parametre:");
 		label.setBounds(249, 145, 67, 27);
 		contentPane.add(label);
 		

@@ -23,5 +23,10 @@ public class Echeancier {
 	public static void sort()
 	{
 		Collections.sort(evt);
+		for (Evenement e: evt)
+		{
+			System.out.println("heure debut service"+e.getHeureDebut()+ "heure hs");
+		}
+		
 	}
 }

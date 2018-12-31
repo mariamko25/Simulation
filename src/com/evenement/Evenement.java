@@ -4,7 +4,10 @@ import java.util.Random;
 
 import com.model.TypeEvtTraite;
 
+import Lois.Loi;
+
 public  class Evenement implements Comparable{
+	Loi loi= new Loi();
 	/**
 	 * @return the precHs
 	 */
@@ -17,11 +20,40 @@ public  class Evenement implements Comparable{
 	public void setPrecHs(float precHs) {
 		this.precHs = precHs;
 	}
+	
+	
+	
 	/**
 	 * @return the interArrivee
+	 * on applique la loi à chaque appel
 	 */
 	public float getInterArrivee() {
-		return interArrivee;
+		//return interArrivee;
+		if(LoiInterArrivee=="Loi exponentielle")
+		{
+
+			return (float) loi.getExponentielRandom(interArrivee);
+		}
+		else if(LoiInterArrivee=="Loi de poisson")
+		{
+			return (float) loi.getPoissonRandom(interArrivee);
+
+		}
+		else if(LoiInterArrivee=="Loi normale")
+		{
+			return (float) loi.getNormalRandom();
+			
+		}
+		else if(LoiInterArrivee=="Loi uniforme")
+		{
+			return interArrivee;
+		}
+		else
+		{
+			javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a été sélectionnée!"); 
+			return (Float) null;
+		}
+		
 	}
 	/**
 	 * @param interArrivee the interArrivee to set
@@ -29,11 +61,57 @@ public  class Evenement implements Comparable{
 	public void setInterArrivee(float interArrivee) {
 		this.interArrivee = interArrivee;
 	}
+	public String getLoiInterArrivee() {
+		return LoiInterArrivee;
+	}
+	public void setLoiInterArrivee(String loiInterArrivee) {
+		LoiInterArrivee = loiInterArrivee;
+	}
+	
+	public String getLoiDureeService() {
+		return LoiDureeService;
+	}
+	public void setLoiDureeService(String loiDureeService) {
+		LoiDureeService = loiDureeService;
+	}
+	public  float tempMoyenAttente;
+	
+	public Evenement()
+	{
+		
+	}
+	public void executer(float sh)
+	{
+		
+	}
 	/**
 	 * @return the dureeService
+	 * là aussi on utilise les lois
 	 */
 	public float getDureeService() {
-		return dureeService;
+		//return dureeService;
+		if(LoiDureeService=="Loi exponentielle")
+		{
+			return (float) loi.getExponentielRandom(dureeService);
+		}
+		else if(LoiDureeService=="Loi de poisson")
+		{
+			return loi.getPoissonRandom(dureeService);
+		}
+		else if(LoiDureeService=="Loi normale")
+		{
+			return (float) loi.getNormalRandom();
+			
+		}
+		else if(LoiDureeService=="Loi uniforme")
+		{
+			return dureeService;
+		}
+		else
+		{
+			javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a été sélectionnée!"); 
+			return (Float) null;
+		}
 	}
 	/**
 	 * @param dureeService the dureeService to set
@@ -64,17 +142,10 @@ public  class Evenement implements Comparable{
 	public  int totalClientNumber;
 	public  float attenteGlobale;
 	public  float interArrivee;
+	public  String LoiInterArrivee;
 	public  float dureeService;
-	public  float tempMoyenAttente;
-	
-	public Evenement()
-	{
-		
-	}
-	public void executer(float sh)
-	{
-		
-	}
+	public String LoiDureeService;
+
 	
 	
 	/**
