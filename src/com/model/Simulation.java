@@ -20,17 +20,18 @@ public class Simulation {
 		clients=new ArrayList<Client>();
 	}
 
+	//on commence à t=1 et pas 0
 	public void simulate() throws IOException
 	{
 		int count=0;
 		CSVWritter.startCsvWriting(filename);
-		event.setHs(0);
+		event.setHs(1);
 		event.setAire_B(0);
 		event.setAire_Q(0);
 		
 		Debut deb=new Debut(TypeEvtTraite.Deb,event,clients);
-		deb.setHs((float)0);
-		deb.setHeureDebut((float)0);
+		deb.setHs((float)1);
+		deb.setHeureDebut((float)1);
 		Echeancier.add(deb);
 		while(!Echeancier.evt.isEmpty() && count<duree)
 		{

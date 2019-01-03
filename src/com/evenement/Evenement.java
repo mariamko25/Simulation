@@ -32,7 +32,7 @@ public  class Evenement implements Comparable{
 		if(LoiInterArrivee=="Loi exponentielle")
 		{
 
-			return (float) Math.abs(loi.getExponentielRandom(interArrivee));
+			return (float) Math.abs(loi.getExponentielRandom(interArrivee,hs));
 		}
 		else if(LoiInterArrivee=="Loi de poisson")
 		{
@@ -92,11 +92,11 @@ public  class Evenement implements Comparable{
 		//return dureeService;
 		if(LoiDureeService=="Loi exponentielle")
 		{
-			return (float) Math.abs(loi.getExponentielRandom(dureeService));
+			return (float) Math.abs(loi.getExponentielRandom(dureeService,hs));
 		}
-		else if(LoiDureeService=="Loi de poisson")
+		else if(LoiDureeService=="Loi beta")
 		{
-			return Math.abs(loi.getPoissonRandom(dureeService));
+			return (float) Math.abs(loi.getLoibeta(hs, 40)); //40 la durée de simulation
 		}
 		else if(LoiDureeService=="Loi normale")
 		{
@@ -105,7 +105,7 @@ public  class Evenement implements Comparable{
 		}
 		else if(LoiDureeService=="Loi uniforme")
 		{
-			return dureeService;
+			return Math.abs(dureeService);
 		}
 		else
 		{
@@ -272,11 +272,16 @@ public  class Evenement implements Comparable{
 	public int compareTo(Object o) {
 		float compareHd=((Evenement)o).getHeureDebut();
 		float compareHs=((Evenement)o).getHs();
+		TypeEvtTraite comparetype=((Evenement)o).getTypeEvt();
         /* For Ascending order*/
         int res=  Float.compare(heureDebut,compareHd);
         if(res==0)
         {
         	res=Float.compare(hs,compareHs);
+        }
+        if(res==0)
+        {
+        	res=TypeEvtTraite.compare(typeEvt,comparetype);
         }
        return res;
 	}

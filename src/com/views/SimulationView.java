@@ -121,7 +121,7 @@ public class SimulationView extends JFrame {
 		contentPane.add(lblService);
 		
 		
-		comboLoiService.setModel(new DefaultComboBoxModel<String>(new String[] {"Loi exponentielle", "Loi normale", "Loi de poisson"}));
+		comboLoiService.setModel(new DefaultComboBoxModel<String>(new String[] {"Loi exponentielle", "Loi normale","Loi uniforme", "Loi beta"}));
 		comboLoiService.setBounds(108, 141, 123, 27);
 		contentPane.add(comboLoiService);
 		
