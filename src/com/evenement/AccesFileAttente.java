@@ -38,6 +38,10 @@ public class AccesFileAttente extends Evenement {
 			String evcree= acc.getTypeEvt().toString()+" "+acc.getHeureDebut();
 			return evcree;
 		}
+		for(int i=0;i<Echeancier.evt.size();i++)
+		{
+			Echeancier.evt.get(i).setTotalClientNumber(evenement.getTotalClientNumber());
+		}
 		return "";
 		
 	}

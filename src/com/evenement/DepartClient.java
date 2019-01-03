@@ -44,6 +44,10 @@ public class DepartClient extends Evenement {
 			}
 			clients.remove(0);
 		}
+		for(int i=0;i<Echeancier.evt.size();i++)
+		{
+			Echeancier.evt.get(i).setTotalClientNumber(evenement.getTotalClientNumber());
+		}
 		return "";
 		
 	}

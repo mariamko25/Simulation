@@ -23,6 +23,10 @@ public class Fin extends Evenement{
 		this.setTempMoyenAttente(evenement.getTempMoyenAttente());
 		this.setDureeService(evenement.getDureeService());
 		this.setInterArrivee(evenement.getInterArrivee());
+		for(int i=0;i<Echeancier.evt.size();i++)
+		{
+			Echeancier.evt.get(i).setTotalClientNumber(evenement.getTotalClientNumber());
+		}
 		return "";
 	}
 }

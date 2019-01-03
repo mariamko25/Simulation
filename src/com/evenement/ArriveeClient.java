@@ -49,6 +49,10 @@ public class ArriveeClient extends Evenement {
 		arr.setInterArrivee(evenement.getInterArrivee());
 		Echeancier.add(arr);
 		String evcree= acces.getTypeEvt().toString()+" "+acces.getHeureDebut() + "  |   "+arr.getTypeEvt().toString()+" "+arr.getHeureDebut();
+		for(int i=0;i<Echeancier.evt.size();i++)
+		{
+			Echeancier.evt.get(i).setTotalClientNumber(evenement.getTotalClientNumber());
+		}
 		return evcree;
 		
 	}

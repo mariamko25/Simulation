@@ -25,7 +25,7 @@ public  class Evenement implements Comparable{
 	
 	/**
 	 * @return the interArrivee
-	 * on applique la loi à chaque appel
+	 * on applique la loi ï¿½ chaque appel
 	 */
 	public float getInterArrivee() {
 		//return interArrivee;
@@ -50,7 +50,7 @@ public  class Evenement implements Comparable{
 		}
 		else
 		{
-			javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a été sélectionnée!"); 
+			javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a ï¿½tï¿½ sï¿½lectionnï¿½e!"); 
 			return (Float) null;
 		}
 		
@@ -87,7 +87,7 @@ public  class Evenement implements Comparable{
 	}
 	/**
 	 * @return the dureeService
-	 * là aussi on utilise les lois
+	 * lï¿½ aussi on utilise les lois
 	 */
 	public float getDureeService() {
 		//return dureeService;
@@ -97,7 +97,7 @@ public  class Evenement implements Comparable{
 		}
 		else if(LoiDureeService=="Loi beta")
 		{
-			return (float) Math.abs(loi.getLoibeta(hs, 40)); //40 la durée de simulation
+			return (float) Math.abs(loi.getLoibeta(hs, 40)); //40 la durï¿½e de simulation
 		}
 		else if(LoiDureeService=="Loi normale")
 		{
@@ -110,7 +110,7 @@ public  class Evenement implements Comparable{
 		}
 		else
 		{
-			javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a été sélectionnée!"); 
+			javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a ï¿½tï¿½ sï¿½lectionnï¿½e!"); 
 			return (Float) null;
 		}
 	}

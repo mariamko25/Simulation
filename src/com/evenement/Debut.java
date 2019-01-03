@@ -37,6 +37,10 @@ public class Debut extends Evenement {
 		arr.setDureeService(evenement.getDureeService());
 		arr.setInterArrivee(evenement.getInterArrivee());
 		Echeancier.add(arr);
+		for(int i=0;i<Echeancier.evt.size();i++)
+		{
+			Echeancier.evt.get(i).setTotalClientNumber(evenement.getTotalClientNumber());
+		}
 		String evcree= arr.getTypeEvt().toString()+" "+arr.getHeureDebut();
 		return evcree;
 		

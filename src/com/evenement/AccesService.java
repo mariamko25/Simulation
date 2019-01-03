@@ -45,6 +45,10 @@ public class AccesService extends Evenement {
 		}
 		Echeancier.add(depart);
 		String evcree= depart.getTypeEvt().toString()+" "+depart.getHeureDebut();
+		for(int i=0;i<Echeancier.evt.size();i++)
+		{
+			Echeancier.evt.get(i).setTotalClientNumber(evenement.getTotalClientNumber());
+		}
 		return evcree;
 
 	}
