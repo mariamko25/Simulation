@@ -80,8 +80,9 @@ public  class Evenement implements Comparable{
 	{
 		
 	}
-	public void executer(float sh)
+	public String executer(float sh)
 	{
+		return "";
 		
 	}
 	/**

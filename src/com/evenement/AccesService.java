@@ -17,7 +17,7 @@ public class AccesService extends Evenement {
 		evenement=event;
 		this.clients=clients;
 	}
-	public  void executer(float sh)
+	public  String executer(float sh)
 	{
 		evenement.setHs(sh);
 		evenement.setAttenteGlobale(evenement.getAttenteGlobale()+(evenement.getHs()-clients.get(0).getDateArrivee()));
@@ -44,6 +44,8 @@ public class AccesService extends Evenement {
 			depart.setAttenteGlobale(evenement.getAttenteGlobale());
 		}
 		Echeancier.add(depart);
+		String evcree= depart.getTypeEvt().toString()+" "+depart.getHeureDebut();
+		return evcree;
 
 	}
 

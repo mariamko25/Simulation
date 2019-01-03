@@ -16,7 +16,7 @@ public class Debut extends Evenement {
 		evenement=event;
 		this.clients=clients;
 	}
-	public  void executer(float sh)
+	public  String executer(float sh)
 	{
 		evenement.setB(0);
 		evenement.setQ(0);
@@ -37,6 +37,8 @@ public class Debut extends Evenement {
 		arr.setDureeService(evenement.getDureeService());
 		arr.setInterArrivee(evenement.getInterArrivee());
 		Echeancier.add(arr);
+		String evcree= arr.getTypeEvt().toString()+" "+arr.getHeureDebut();
+		return evcree;
 		
 	}
 

@@ -37,14 +37,16 @@ public class Simulation {
 		{
 			
 			Echeancier.sort();
-			CSVWritter.writeLine(Float.toString(Echeancier.evt.get(0).getHs()), Echeancier.evt.get(0).getTypeEvt().name(),Echeancier.evt.get(0).getTypeEvt().name()+" "+Float.toString(Echeancier.evt.get(0).getHeureDebut()), Integer.toString(Echeancier.evt.get(0).getB()), Integer.toString(Echeancier.evt.get(0).getQ()),"", Integer.toString(Echeancier.evt.get(0).getTotalClientNumber()), Float.toString(Echeancier.evt.get(0).getAttenteGlobale()));
 			event.setAire_B(event.getAire_B() + (event.getHs()-event.getPrecHs())*event.getB());
 			event.setAire_Q(event.getAire_Q() + (event.getHs()-event.getPrecHs())*event.getQ());
 			System.out.println(Echeancier.evt.get(0).getTypeEvt().name());
 			event.setPrecHs(event.getHs());
 			double n= Echeancier.evt.get(0).getHeureDebut();
 			event.setHs(Echeancier.evt.get(0).getHeureDebut());
-			Echeancier.remove().executer(event.getHs());
+			String evtCree=Echeancier.evt.get(0).executer(event.getHs());
+			//Echeancier.evt.get(0).getTypeEvt().name()+" "+Float.toString(Echeancier.evt.get(0).getHeureDebut())
+			CSVWritter.writeLine(Float.toString(Echeancier.evt.get(0).getHs()), Echeancier.evt.get(0).getTypeEvt().name(),evtCree, Integer.toString(Echeancier.evt.get(0).getB()), Integer.toString(Echeancier.evt.get(0).getQ()),"", Integer.toString(Echeancier.evt.get(0).getTotalClientNumber()), Float.toString(Echeancier.evt.get(0).getAttenteGlobale()));
+			Echeancier.remove();
 			count++;
 
 		}

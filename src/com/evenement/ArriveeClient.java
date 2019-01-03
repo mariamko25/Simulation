@@ -18,7 +18,7 @@ public class ArriveeClient extends Evenement {
 		evenement=event;
 		this.clients=clients;
 	}
-	public   void executer(float sh)
+	public   String executer(float sh)
 	{
 		evenement.setHs(sh);
 		Client nouveau=new Client();
@@ -48,6 +48,8 @@ public class ArriveeClient extends Evenement {
 		arr.setDureeService(evenement.getDureeService());
 		arr.setInterArrivee(evenement.getInterArrivee());
 		Echeancier.add(arr);
+		String evcree= acces.getTypeEvt().toString()+" "+acces.getHeureDebut() + "  |   "+arr.getTypeEvt().toString()+" "+arr.getHeureDebut();
+		return evcree;
 		
 	}
 

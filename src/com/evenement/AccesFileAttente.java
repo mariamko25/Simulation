@@ -17,7 +17,7 @@ public class AccesFileAttente extends Evenement {
 		this.evenement=event;
 		this.clients=clients;
 	}
-	public void executer(float sh)
+	public String executer(float sh)
 	{
 		this.evenement.setQ(this.evenement.getQ()+1);
 		
@@ -35,7 +35,10 @@ public class AccesFileAttente extends Evenement {
 			acc.setDureeService(evenement.getDureeService());
 			acc.setInterArrivee(evenement.getInterArrivee());
 			Echeancier.add(acc);
+			String evcree= acc.getTypeEvt().toString()+" "+acc.getHeureDebut();
+			return evcree;
 		}
+		return "";
 		
 	}
 

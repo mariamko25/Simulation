@@ -18,7 +18,7 @@ public class DepartClient extends Evenement {
 		evenement=event;
 		this.clients=clients;
 	}
-	public  void executer(float sh)
+	public  String executer(float sh)
 	{
 		if(!clients.isEmpty())
 		{
@@ -39,9 +39,12 @@ public class DepartClient extends Evenement {
 				acc.setDureeService(evenement.getDureeService());
 				acc.setInterArrivee(evenement.getInterArrivee());
 				Echeancier.add(acc);
+				String evcree= acc.getTypeEvt().toString()+" "+acc.getHeureDebut();
+				return evcree;
 			}
 			clients.remove(0);
 		}
+		return "";
 		
 	}
 

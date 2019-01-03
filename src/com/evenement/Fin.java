@@ -11,7 +11,7 @@ public class Fin extends Evenement{
 		typeEvt=evt;
 		evenement=event;
 	}
-	public  void executer(float sh)
+	public  String executer(float sh)
 	{
 		Echeancier.evt.clear();
 		evenement.setHs(sh);
@@ -23,5 +23,6 @@ public class Fin extends Evenement{
 		this.setTempMoyenAttente(evenement.getTempMoyenAttente());
 		this.setDureeService(evenement.getDureeService());
 		this.setInterArrivee(evenement.getInterArrivee());
+		return "";
 	}
 }
