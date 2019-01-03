@@ -24,6 +24,7 @@ public class ArriveeClient extends Evenement {
 		Client nouveau=new Client();
 		nouveau.setDateArrivee(evenement.getHs());
 		clients.add(nouveau);
+		evenement.setTotalClientNumber(evenement.getTotalClientNumber()+1);
 		AccesFileAttente acces=new AccesFileAttente(TypeEvtTraite.AccFA,evenement,clients);
 		acces.setHs(evenement.getHs());
 		acces.setHeureDebut(evenement.getHs());
@@ -35,7 +36,7 @@ public class ArriveeClient extends Evenement {
 		acces.setDureeService(evenement.getDureeService());
 		acces.setInterArrivee(evenement.getInterArrivee());
 		Echeancier.add(acces);
-		evenement.setTotalClientNumber(evenement.getTotalClientNumber()+1);
+		
 		
 		ArriveeClient arr= new ArriveeClient(TypeEvtTraite.ArrCl,evenement,clients); 
 		arr.setHs(evenement.getHs());
@@ -49,6 +50,15 @@ public class ArriveeClient extends Evenement {
 		arr.setInterArrivee(evenement.getInterArrivee());
 		Echeancier.add(arr);
 		String evcree= acces.getTypeEvt().toString()+" "+acces.getHeureDebut() + "  |   "+arr.getTypeEvt().toString()+" "+arr.getHeureDebut();
+		for(int i=0;i<Echeancier.evt.size();i++)
+		{
+			Echeancier.evt.get(i).setTotalClientNumber(evenement.getTotalClientNumber());
+			Echeancier.evt.get(i).setHs(evenement.getHs());
+			Echeancier.evt.get(i).setB(evenement.getB());
+			Echeancier.evt.get(i).setQ(evenement.getQ());
+			Echeancier.evt.get(i).setAttenteGlobale(evenement.getAttenteGlobale());
+			Echeancier.evt.get(i).setTempMoyenAttente(evenement.getTempMoyenAttente());
+		}
 		return evcree;
 		
 	}

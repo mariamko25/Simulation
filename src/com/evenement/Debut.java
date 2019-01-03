@@ -37,6 +37,15 @@ public class Debut extends Evenement {
 		arr.setDureeService(evenement.getDureeService());
 		arr.setInterArrivee(evenement.getInterArrivee());
 		Echeancier.add(arr);
+		for(int i=0;i<Echeancier.evt.size();i++)
+		{
+			Echeancier.evt.get(i).setTotalClientNumber(evenement.getTotalClientNumber());
+			Echeancier.evt.get(i).setHs(evenement.getHs());
+			Echeancier.evt.get(i).setB(evenement.getB());
+			Echeancier.evt.get(i).setQ(evenement.getQ());
+			Echeancier.evt.get(i).setAttenteGlobale(evenement.getAttenteGlobale());
+			Echeancier.evt.get(i).setTempMoyenAttente(evenement.getTempMoyenAttente());
+		}
 		String evcree= arr.getTypeEvt().toString()+" "+arr.getHeureDebut();
 		return evcree;
 		
