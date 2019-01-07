@@ -1,7 +1,5 @@
 package com.evenement;
 
-import java.util.Random;
-
 import com.model.TypeEvtTraite;
 
 import Lois.Loi;
@@ -97,7 +95,11 @@ public  class Evenement implements Comparable{
 		}
 		else if(LoiDureeService=="Loi beta")
 		{
-			return (float) Math.abs(loi.getLoibeta(hs, 40)); //40 la dur�e de simulation
+			//lyy begin---
+//			return (float) Math.abs(loi.getLoibeta(hs, 40)); //40 la dur�e de simulation
+			float temp=((float) Math.abs(loi.getLoibeta(hs, 40)))*10;
+			return ((float) Math.abs(loi.getLoibeta(hs, 40)))*10;
+			//lyy end---
 		}
 		else if(LoiDureeService=="Loi normale")
 		{
@@ -108,6 +110,11 @@ public  class Evenement implements Comparable{
 		{
 			return Math.abs(dureeService);
 		}
+		//lyy begin---
+		else if (LoiDureeService=="Constante") {
+			return dureeService;
+		}
+		//lyy end---
 		else
 		{
 			javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a �t� s�lectionn�e!"); 
@@ -266,9 +273,6 @@ public  class Evenement implements Comparable{
 		this.aire_Q = aire_Q;
 	}
 	
-	
-	
-	
 	@Override
 	public int compareTo(Object o) {
 		float compareHd=((Evenement)o).getHeureDebut();
@@ -286,10 +290,4 @@ public  class Evenement implements Comparable{
         }
        return res;
 	}
-	
-	
-
-	
-	
-
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.evenement.*;
+import com.evenement.Evenement;
 public class Echeancier {
 	
 	public static List<Evenement> evt=new ArrayList<Evenement>();

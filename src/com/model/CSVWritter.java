@@ -77,4 +77,24 @@ public class CSVWritter {
 		}
 	}
 	
+	//lyy begin---
+	public static void writeResult(String tempAttentMoyen, String maxTempAttent) {
+		try {
+			fileWriter.append("Le temps d'attente moyen");
+			fileWriter.append(COMMA_DELIMITER);
+			fileWriter.append(tempAttentMoyen);
+			fileWriter.append(NEW_LINE_SEPARATOR);
+			fileWriter.append("Le temps d'attente maximal");
+			fileWriter.append(COMMA_DELIMITER);
+			fileWriter.append(maxTempAttent);
+		} catch (IOException e) {
+			System.out.println("Error in CsvFileWriter !!!");
+			e.printStackTrace();
+		}
+	}
+//	
+//	public static String calculMaxAttent() {
+//		
+//	}
+	//lyy end---
 }
