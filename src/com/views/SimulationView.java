@@ -84,7 +84,8 @@ public class SimulationView extends JFrame {
 						Simulation sim=new Simulation(evt,"sim.csv",7200);
 						//lyy end---
 						try {
-							sim.simulate();
+							//sim.simulate();
+							sim.simulate2();
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
