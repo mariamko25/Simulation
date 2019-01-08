@@ -27,28 +27,28 @@ public  class Evenement implements Comparable{
 	 */
 	public float getInterArrivee() {
 		//return interArrivee;
-		if(LoiInterArrivee=="Loi exponentielle")
+		if(LoiInterArrivee.equals("Loi exponentielle"))
 		{
 
 			return (float) Math.abs(loi.getExponentielRandom(interArrivee,hs));
 		}
-		else if(LoiInterArrivee=="Loi de poisson")
+		else if(LoiInterArrivee.equals("Loi de poisson"))
 		{
 			return (float) Math.abs(loi.getPoissonRandom(interArrivee));
 
 		}
-		else if(LoiInterArrivee=="Loi normale")
+		else if(LoiInterArrivee.equals("Loi normale"))
 		{
 			return (float) Math.abs(loi.getNormalRandom());
 			
 		}
-		else if(LoiInterArrivee=="Loi uniforme")
+		else if(LoiInterArrivee.equals("Loi uniforme"))
 		{
 			return interArrivee;
 		}
 		else
 		{
-			javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a �t� s�lectionn�e!"); 
+			javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a ete selectionner!"); 
 			return (Float) null;
 		}
 		
@@ -89,11 +89,11 @@ public  class Evenement implements Comparable{
 	 */
 	public float getDureeService() {
 		//return dureeService;
-		if(LoiDureeService=="Loi exponentielle")
+		if(LoiDureeService.equals("Loi exponentielle"))
 		{
 			return (float) Math.abs(loi.getExponentielRandom(dureeService,hs));
 		}
-		else if(LoiDureeService=="Loi beta")
+		else if(LoiDureeService.equals("Loi beta"))
 		{
 			//lyy begin---
 //			return (float) Math.abs(loi.getLoibeta(hs, 40)); //40 la dur�e de simulation
@@ -101,12 +101,12 @@ public  class Evenement implements Comparable{
 			return ((float) Math.abs(loi.getLoibeta(hs, 40)))*10;
 			//lyy end---
 		}
-		else if(LoiDureeService=="Loi normale")
+		else if(LoiDureeService.equals("Loi normale"))
 		{
 			return (float) Math.abs(loi.getNormalRandom());
 			
 		}
-		else if(LoiDureeService=="Loi uniforme")
+		else if(LoiDureeService.equals("Loi uniforme"))
 		{
 			return Math.abs(dureeService);
 		}
