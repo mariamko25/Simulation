@@ -110,14 +110,9 @@ public  class Evenement implements Comparable{
 		{
 			return Math.abs(dureeService);
 		}
-		//lyy begin---
-		else if (LoiDureeService=="Constante") {
-			return dureeService;
-		}
-		//lyy end---
 		else
 		{
-			javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a �t� s�lectionn�e!"); 
+			javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a  ete selectionner!"); 
 			return (Float) null;
 		}
 	}
