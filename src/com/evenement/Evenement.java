@@ -97,7 +97,6 @@ public  class Evenement implements Comparable{
 		{
 			//lyy begin---
 //			return (float) Math.abs(loi.getLoibeta(hs, 40)); //40 la dur�e de simulation
-			float temp=((float) Math.abs(loi.getLoibeta(hs, 40)))*10;
 			return ((float) Math.abs(loi.getLoibeta(hs, 40)))*10;
 			//lyy end---
 		}

@@ -82,6 +82,7 @@ public class Simulation {
 		String tempAttentMoyen=Float.toString(tempAttentGlobal / Echeancier.evt.get(0).getTotalClientNumber());
 		CSVWritter.writeResult(tempAttentMoyen, maxTempAttent);
 		//lyy end---
+		CSVWritter.writeLine(Float.toString(event.getHs()), "Fin","","","","","","");
 		CSVWritter.stopCsvWriting();
 		Desktop d=Desktop.getDesktop();
 		File file= new File(filename);
