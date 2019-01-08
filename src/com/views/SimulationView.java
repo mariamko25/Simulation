@@ -76,7 +76,7 @@ public class SimulationView extends JFrame {
 					{
 						Evenement evt=new Evenement();
 						
-						//on récupère le type de loi et le paramètre
+						//on rï¿½cupï¿½re le type de loi et le paramï¿½tre
 						evt.setInterArrivee(Float.valueOf(paramLoiArrivee.getText()));
 						evt.setLoiInterArrivee(comboLoiArrivee.getSelectedItem().toString());
 						
@@ -87,9 +87,10 @@ public class SimulationView extends JFrame {
 				
 						//evt.setDureeService(Float.valueOf(paramLoiService.getText()));
 						
-						Simulation sim=new Simulation(evt,"sim.csv",40);
+						Simulation sim=new Simulation(evt,"sim2.csv",40);
 						try {
-							sim.simulate();
+							//sim.simulate();
+							sim.simulate2();
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
