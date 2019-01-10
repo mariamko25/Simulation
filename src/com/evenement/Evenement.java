@@ -79,9 +79,7 @@ public  class Evenement implements Comparable{
 	
 	public Evenement()
 	{
-		for(int i=0;i<this.nombreServeur;i++) {
-			this.b[i]=0;
-		}
+
 	}
 	public String executer(float sh)
 	{

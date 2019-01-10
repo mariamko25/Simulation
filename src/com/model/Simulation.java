@@ -51,7 +51,7 @@ public class Simulation {
 		//lyy end---
 		{
 			Echeancier.sort();
-			event.setAire_B(event.getAire_B() + (event.getHs()-event.getPrecHs())*event.getB(event.getServeurCourant()));
+			event.setAire_B(event.getAire_B() + (event.getHs()-event.getPrecHs())*event.getB());
 			event.setAire_Q(event.getAire_Q() + (event.getHs()-event.getPrecHs())*event.getQ());
 			System.out.println(Echeancier.evt.get(0).getTypeEvt().name());		
 			event.setPrecHs(event.getHs());
@@ -74,7 +74,7 @@ public class Simulation {
 			}
 			//Echeancier.evt.get(0).getTypeEvt().name()+" "+Float.toString(Echeancier.evt.get(0).getHeureDebut())
 //			CSVWritter.writeLine(Float.toString(Echeancier.evt.get(0).getHeureDebut()), Echeancier.evt.get(0).getTypeEvt().name(),evtCree, Integer.toString(Echeancier.evt.get(0).getB()), Integer.toString(Echeancier.evt.get(0).getQ()),"", Integer.toString(Echeancier.evt.get(0).getTotalClientNumber()), Float.toString(Echeancier.evt.get(0).getAttenteGlobale()));
-			CSVWritter.writeLine(Float.toString(Echeancier.evt.get(0).getHeureDebut()), Echeancier.evt.get(0).getTypeEvt().name(),evtCree, Integer.toString(Echeancier.evt.get(0).getB(Echeancier.evt.get(0).getServeurCourant())), Integer.toString(Echeancier.evt.get(0).getQ()),"", Integer.toString(Echeancier.evt.get(0).getTotalClientNumber()), Float.toString(tempAttentGlobal));
+			CSVWritter.writeLine(Float.toString(Echeancier.evt.get(0).getHeureDebut()), Echeancier.evt.get(0).getTypeEvt().name(),evtCree, Integer.toString(Echeancier.evt.get(0).getB()), Integer.toString(Echeancier.evt.get(0).getQ()),"", Integer.toString(Echeancier.evt.get(0).getTotalClientNumber()), Float.toString(tempAttentGlobal));
 //			System.out.println(Float.toString(Echeancier.evt.get(0).getHeureDebut()) + " "+Echeancier.evt.get(0).getTypeEvt().name()+" "+evtCree);
 			//lyy end---
 			Echeancier.remove();
@@ -110,7 +110,7 @@ public class Simulation {
 		while(!Echeancier.evt.isEmpty() && event.getHs()<1440)
 		{
 			Echeancier.sort();
-			event.setAire_B(event.getAire_B() + (event.getHs()-event.getPrecHs())*event.getB(event.getServeurCourant()));
+			event.setAire_B(event.getAire_B() + (event.getHs()-event.getPrecHs())*event.getB());
 			event.setAire_Q(event.getAire_Q() + (event.getHs()-event.getPrecHs())*event.getQ());
 			System.out.println(Echeancier.evt.get(0).getTypeEvt().name());
 			event.setPrecHs(event.getHs());
@@ -123,14 +123,14 @@ public class Simulation {
 		while(!Echeancier.evt.isEmpty() && event.getHs()<1440+duree)
 		{
 			Echeancier.sort();
-			event.setAire_B(event.getAire_B() + (event.getHs()-event.getPrecHs())*event.getB(event.getServeurCourant()));
+			event.setAire_B(event.getAire_B() + (event.getHs()-event.getPrecHs())*event.getB());
 			event.setAire_Q(event.getAire_Q() + (event.getHs()-event.getPrecHs())*event.getQ());
 			System.out.println(Echeancier.evt.get(0).getTypeEvt().name());
 			event.setPrecHs(event.getHs());
 			event.setHs(Echeancier.evt.get(0).getHeureDebut());
 			Echeancier.evt.get(0).setHs(event.getTotalClientNumber());
 			String evtCree=Echeancier.evt.get(0).executer(event.getHs());
-			CSVWritter.writeLine(Float.toString(Echeancier.evt.get(0).getHeureDebut()), Echeancier.evt.get(0).getTypeEvt().name(),evtCree, Integer.toString(Echeancier.evt.get(0).getB(Echeancier.evt.get(0).getServeurCourant())), Integer.toString(Echeancier.evt.get(0).getQ()),"", Integer.toString(Echeancier.evt.get(0).getTotalClientNumber()), Float.toString(Echeancier.evt.get(0).getAttenteGlobale()));
+			CSVWritter.writeLine(Float.toString(Echeancier.evt.get(0).getHeureDebut()), Echeancier.evt.get(0).getTypeEvt().name(),evtCree, Integer.toString(Echeancier.evt.get(0).getB()), Integer.toString(Echeancier.evt.get(0).getQ()),"", Integer.toString(Echeancier.evt.get(0).getTotalClientNumber()), Float.toString(Echeancier.evt.get(0).getAttenteGlobale()));
 			Echeancier.remove();
 		}
 		CSVWritter.writeLine(Float.toString(event.getHs()), "Fin","","","","","","");
