@@ -81,7 +81,7 @@ public class SimulationView extends JFrame {
 						//evt.setDureeService(Float.valueOf(paramLoiService.getText()));
 						
 						//lyy begin---
-						Simulation sim=new Simulation(evt,"sim.csv",7200);
+						Simulation sim=new Simulation(evt,"sim.csv",60);
 						//lyy end---
 						try {
 							sim.simulate();

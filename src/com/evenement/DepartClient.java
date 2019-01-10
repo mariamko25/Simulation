@@ -25,7 +25,7 @@ public class DepartClient extends Evenement {
 			evenement.setHs(sh);
 			clients.get(0).setDateDepart(evenement.getHs());
 			clients.get(0).setTempService(clients.get(0).getDateDepart()-clients.get(0).getDateAccSrv());
-			evenement.setB(0);
+			evenement.setB(0,evenement.getServeurCourant());
 			if(evenement.getQ()>=1)
 			{
 				AccesService acc=new AccesService(TypeEvtTraite.AccSrv,evenement,clients);
@@ -38,8 +38,9 @@ public class DepartClient extends Evenement {
 				acc.setTempMoyenAttente(evenement.getTempMoyenAttente());
 				acc.setDureeService(evenement.getDureeService());
 				acc.setInterArrivee(evenement.getInterArrivee());
+				acc.setServeurCourant(this.serveurCourant);
 				Echeancier.add(acc);
-				String evcree= acc.getTypeEvt().toString()+" "+acc.getHeureDebut();
+				String evcree= acc.getTypeEvt().toString()+" "+acc.getHeureDebut()+": serveur"+acc.getServeurCourant();
 				return evcree;
 			}
 			clients.remove(0);

@@ -8,8 +8,6 @@ import com.model.TypeEvtTraite;
 
 public class ArriveeClient extends Evenement {
 	
-	
-	
 	public Evenement evenement;
 	private List<Client>clients;
 	public ArriveeClient(TypeEvtTraite evt,Evenement event, List<Client>clients)
@@ -25,6 +23,7 @@ public class ArriveeClient extends Evenement {
 		nouveau.setDateArrivee(evenement.getHs());
 		clients.add(nouveau);
 		evenement.setTotalClientNumber(evenement.getTotalClientNumber()+1);
+		
 		AccesFileAttente acces=new AccesFileAttente(TypeEvtTraite.AccFA,evenement,clients);
 		acces.setHs(evenement.getHs());
 		acces.setHeureDebut(evenement.getHs());
@@ -36,8 +35,7 @@ public class ArriveeClient extends Evenement {
 		acces.setDureeService(evenement.getDureeService());
 		acces.setInterArrivee(evenement.getInterArrivee());
 		Echeancier.add(acces);
-		
-		
+
 		ArriveeClient arr= new ArriveeClient(TypeEvtTraite.ArrCl,evenement,clients); 
 		arr.setHs(evenement.getHs());
 		arr.setHeureDebut(evenement.getHs()+evenement.getInterArrivee());
@@ -49,7 +47,8 @@ public class ArriveeClient extends Evenement {
 		arr.setDureeService(evenement.getDureeService());
 		arr.setInterArrivee(evenement.getInterArrivee());
 		Echeancier.add(arr);
-		String evcree= acces.getTypeEvt().toString()+" "+acces.getHeureDebut() + "  |   "+arr.getTypeEvt().toString()+" "+arr.getHeureDebut();
+		String evcree= acces.getTypeEvt().toString()+" "+acces.getHeureDebut() +" : serveur"+acces.getServeurCourant()+ "  |   "+arr.getTypeEvt().toString()+" "+arr.getHeureDebut();
+		
 		for(int i=0;i<Echeancier.evt.size();i++)
 		{
 			Echeancier.evt.get(i).setTotalClientNumber(evenement.getTotalClientNumber());
