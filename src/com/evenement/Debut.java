@@ -18,16 +18,18 @@ public class Debut extends Evenement {
 	}
 	public  String executer(float sh)
 	{
-		evenement.setB(0);
+//		evenement.setB(0);
 		evenement.setQ(0);
 		evenement.setHs(sh);
 		evenement.setPrecHs((float)0);
 		evenement.setAire_B((float) 0);
 		evenement.setAire_Q((float) 0);
 		evenement.setAttenteGlobale((float)0);
+		evenement.setServeurCourant(0);
 		clients.clear();
 		ArriveeClient arr= new ArriveeClient(TypeEvtTraite.ArrCl,evenement,clients); 
 		arr.setHs(evenement.getHs());
+		arr.setServeurCourant(0);
 		arr.setHeureDebut(evenement.getHs()+evenement.getInterArrivee());
 		arr.setB(evenement.getB());
 		arr.setQ(evenement.getQ());
