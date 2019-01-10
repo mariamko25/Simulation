@@ -49,7 +49,6 @@ public class Debut extends Evenement {
 		}
 		String evcree= arr.getTypeEvt().toString()+" "+arr.getHeureDebut();
 		return evcree;
-		
 	}
 
 }

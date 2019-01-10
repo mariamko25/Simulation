@@ -44,23 +44,6 @@ public class AccesFileAttente extends Evenement {
 				return evcree;
 			}
 		}
-//		if(this.evenement.getB()==0)
-//		{
-//			evenement.setHs(sh);
-//			AccesService acc=new AccesService(TypeEvtTraite.AccSrv,evenement,clients);
-//			acc.setHs(evenement.getHs());
-//			acc.setHeureDebut(evenement.getHs());
-//			acc.setB(1);
-//			acc.setQ(evenement.getQ());
-//			acc.setAttenteGlobale(evenement.getAttenteGlobale());
-//			acc.setTotalClientNumber(evenement.getTotalClientNumber());
-//			acc.setTempMoyenAttente(evenement.getTempMoyenAttente());
-//			acc.setDureeService(evenement.getDureeService());
-//			acc.setInterArrivee(evenement.getInterArrivee());
-//			Echeancier.add(acc);
-//			String evcree= acc.getTypeEvt().toString()+" "+acc.getHeureDebut();
-//			return evcree;
-//		}
 		for(int i=0;i<Echeancier.evt.size();i++)
 		{
 			Echeancier.evt.get(i).setTotalClientNumber(evenement.getTotalClientNumber());
@@ -71,7 +54,6 @@ public class AccesFileAttente extends Evenement {
 			Echeancier.evt.get(i).setTempMoyenAttente(evenement.getTempMoyenAttente());
 		}
 		return "";
-		
 	}
 
 }

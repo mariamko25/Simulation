@@ -38,7 +38,6 @@ public class ArriveeClient extends Evenement {
 		acces.setServeurCourant(0);
 		Echeancier.add(acces);
 		
-		
 		ArriveeClient arr= new ArriveeClient(TypeEvtTraite.ArrCl,evenement,clients); 
 		arr.setHs(evenement.getHs());
 		arr.setHeureDebut(evenement.getHs()+evenement.getInterArrivee());
