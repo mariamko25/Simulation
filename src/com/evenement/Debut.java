@@ -36,6 +36,7 @@ public class Debut extends Evenement {
 		arr.setTempMoyenAttente(evenement.getTempMoyenAttente());
 		arr.setDureeService(evenement.getDureeService());
 		arr.setInterArrivee(evenement.getInterArrivee());
+		arr.setServeurCourant(0);
 		Echeancier.add(arr);
 		for(int i=0;i<Echeancier.evt.size();i++)
 		{

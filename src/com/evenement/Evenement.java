@@ -143,7 +143,6 @@ public  class Evenement implements Comparable{
 	public  float precHs;
 	public  float heureDebut;
 	public  TypeEvtTraite typeEvt;
-	public  int b;
 	public  int q;
 	public  float aire_B;
 	public  float aire_Q;
@@ -153,9 +152,22 @@ public  class Evenement implements Comparable{
 	public  String LoiInterArrivee;
 	public  float dureeService;
 	public String LoiDureeService;
+	public int b;
+	public int serveurCourant=0;
 
-	
-	
+	public int getB() {
+		return b;
+	}
+	public void setB(int b) {
+		this.b = b;
+	}
+	public int getServeurCourant() {
+		return serveurCourant;
+	}
+	public void setServeurCourant(int serveurCourant) {
+		this.serveurCourant = serveurCourant;
+	}
+
 	/**
 	 * @return the attenteGlobale
 	 */
@@ -227,15 +239,7 @@ public  class Evenement implements Comparable{
 	/**
 	 * @return the b
 	 */
-	public  int getB() {
-		return b;
-	}
-	/**
-	 * @param b the b to set
-	 */
-	public  void setB(int b) {
-		this.b = b;
-	}
+
 	/**
 	 * @return the q
 	 */

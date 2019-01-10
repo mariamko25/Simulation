@@ -27,6 +27,8 @@ public class AccesService extends Evenement {
 
 		}
 		evenement.setB(1);
+		Echeancier.etatServeur[this.serveurCourant]=1;
+//		evenement.setB(1);
 		DepartClient depart= new DepartClient(TypeEvtTraite.DepCl,evenement,clients);
 		depart.setHs(evenement.getHs());
 		//lyy begin---
@@ -36,19 +38,21 @@ public class AccesService extends Evenement {
 		//lyy end---
 		depart.setHeureDebut(evenement.getHs()+evenement.getDureeService());
 		depart.setB(0);
+//		depart.setB(0);
 		depart.setQ(evenement.getQ());
 		depart.setAttenteGlobale(evenement.getAttenteGlobale());
 		depart.setTotalClientNumber(evenement.getTotalClientNumber());
 		depart.setTempMoyenAttente(evenement.getTempMoyenAttente());
 		depart.setDureeService(evenement.getDureeService());
 		depart.setInterArrivee(evenement.getInterArrivee());
+		depart.setServeurCourant(this.serveurCourant);
 		if(evenement.getAttenteGlobale()<(evenement.getHs()-clients.get(0).getDateArrivee()))
 		{
 			evenement.setAttenteGlobale(evenement.getHs()-clients.get(0).getDateArrivee());
 			depart.setAttenteGlobale(evenement.getAttenteGlobale());
 		}
 		Echeancier.add(depart);
-		String evcree= depart.getTypeEvt().toString()+" "+depart.getHeureDebut();
+		String evcree= depart.getTypeEvt().toString()+" "+depart.getHeureDebut()+" : serveur"+depart.getServeurCourant();
 		for(int i=0;i<Echeancier.evt.size();i++)
 		{
 			Echeancier.evt.get(i).setTotalClientNumber(evenement.getTotalClientNumber());

@@ -8,6 +8,10 @@ import com.evenement.Evenement;
 public class Echeancier {
 	
 	public static List<Evenement> evt=new ArrayList<Evenement>();
+	//lyy begin---
+	public static int nombreServeur=1;
+	public static int[]etatServeur=new int[nombreServeur];
+	//lyy end---
 	
 	public static void add(Evenement e)
 	{
@@ -29,4 +33,10 @@ public class Echeancier {
 		}
 		
 	}
+	
+	//lyy begin---
+	public static void setNBServeur(int nbServeur) {
+		nombreServeur=nbServeur;
+	}
+	//lyy end---
 }

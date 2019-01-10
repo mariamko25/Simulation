@@ -35,6 +35,7 @@ public class ArriveeClient extends Evenement {
 		acces.setTempMoyenAttente(evenement.getTempMoyenAttente());
 		acces.setDureeService(evenement.getDureeService());
 		acces.setInterArrivee(evenement.getInterArrivee());
+		acces.setServeurCourant(0);
 		Echeancier.add(acces);
 		
 		
@@ -48,6 +49,7 @@ public class ArriveeClient extends Evenement {
 		arr.setTempMoyenAttente(evenement.getTempMoyenAttente());
 		arr.setDureeService(evenement.getDureeService());
 		arr.setInterArrivee(evenement.getInterArrivee());
+		arr.setServeurCourant(0);
 		Echeancier.add(arr);
 		String evcree= acces.getTypeEvt().toString()+" "+acces.getHeureDebut() + "  |   "+arr.getTypeEvt().toString()+" "+arr.getHeureDebut();
 		for(int i=0;i<Echeancier.evt.size();i++)
