@@ -99,7 +99,7 @@ public class SimulationView extends JFrame {
 		btnLancer.setBounds(163, 243, 117, 29);
 		contentPane.add(btnLancer);
 		
-		comboLoiArrivee.setModel(new DefaultComboBoxModel<String>(new String[] {"Loi exponentielle", "Loi normale","Loi uniforme", "Loi de poisson"}));
+		comboLoiArrivee.setModel(new DefaultComboBoxModel<String>(new String[] {"Loi exponentielle", "Loi normale","Loi uniforme", "Loi de poisson","Loi empirique"}));
 		comboLoiArrivee.setBounds(108, 86, 123, 27);
 		contentPane.add(comboLoiArrivee);
 		
@@ -118,7 +118,7 @@ public class SimulationView extends JFrame {
 		
 		//lyy begin---
 //		comboLoiService.setModel(new DefaultComboBoxModel<String>(new String[] {"Loi exponentielle", "Loi normale","Loi uniforme", "Loi beta"}));
-		comboLoiService.setModel(new DefaultComboBoxModel<String>(new String[] {"Loi exponentielle", "Loi normale","Loi uniforme", "Loi beta"}));
+		comboLoiService.setModel(new DefaultComboBoxModel<String>(new String[] {"Loi exponentielle", "Loi normale","Loi uniforme", "Loi beta","Loi empirique"}));
 		//lyy end---
 		comboLoiService.setBounds(108, 141, 123, 27);
 		contentPane.add(comboLoiService);

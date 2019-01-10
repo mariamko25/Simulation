@@ -1,9 +1,15 @@
 package Lois;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Random;
 
 import org.apache.commons.math3.distribution.BetaDistribution;
 import org.apache.commons.math3.distribution.ExponentialDistribution;
+import org.apache.commons.math3.exception.NullArgumentException;
+import org.apache.commons.math3.random.EmpiricalDistribution;
 
 public class Loi {
 	public Loi() {}
@@ -64,4 +70,29 @@ public class Loi {
         return  ran.nextGaussian(); 
 	}
 
+	public double getEmpiriqueRandom(String pathName){
+		File fileDonnee=new java.io.File(pathName);
+		int lines=0;
+		try {
+			lines=(int)Files.lines(Paths.get(fileDonnee.getPath())).count();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		EmpiricalDistribution empiricalDistribution=new EmpiricalDistribution(lines);
+		try {
+			empiricalDistribution.load(fileDonnee);
+		} catch (NullArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		empiricalDistribution.getBinCount();
+		empiricalDistribution.getBinStats();
+		double resulat=empiricalDistribution.getNextValue();
+		return empiricalDistribution.getNextValue();
+	}
 }

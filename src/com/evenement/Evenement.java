@@ -46,6 +46,9 @@ public  class Evenement implements Comparable{
 		{
 			return interArrivee;
 		}
+		else if( LoiDureeService.equals("Loi empirique")) {
+			return (float) Math.abs(loi.getEmpiriqueRandom("empiriqueArrive.txt"));
+		}
 		else
 		{
 			javax.swing.JOptionPane.showMessageDialog(null,"aucune loi n'a ete selectionner!"); 
@@ -97,7 +100,7 @@ public  class Evenement implements Comparable{
 		{
 			//lyy begin---
 //			return (float) Math.abs(loi.getLoibeta(hs, 40)); //40 la dur�e de simulation
-			return ((float) Math.abs(loi.getLoibeta(hs, 40)))*10;
+			return ((float) Math.abs(loi.getLoibeta(hs, 40)))*((float)18.24);
 			//lyy end---
 		}
 		else if(LoiDureeService.equals("Loi normale"))
@@ -108,6 +111,9 @@ public  class Evenement implements Comparable{
 		else if(LoiDureeService.equals("Loi uniforme"))
 		{
 			return Math.abs(dureeService);
+		}
+		else if(LoiDureeService.equals("Loi empirique")) {
+			return (float) Math.abs(loi.getEmpiriqueRandom("empiriqueService.txt"));
 		}
 		else
 		{
