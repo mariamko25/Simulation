@@ -43,6 +43,7 @@ public class Simulation {
 		List<Client> clients=new ArrayList<Client>();
 		float tempAttentMax=0;
 		float tempAttentGlobal=0;
+		Echeancier.etatServeur=new int[Echeancier.nombreServeur];
 		for(int i=0;i<Echeancier.nombreServeur;i++) {
 			Echeancier.etatServeur[i]=0;
 		}
